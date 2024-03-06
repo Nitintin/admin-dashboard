@@ -28,18 +28,22 @@ const WidgetWrapper = () => {
     const getWidget = () => {
         const arr = [];
 
-        for(let i=0; i<40; i++){
+        for(let i=0; i<4; i++){
             arr.push(<Widget />)
         }
 
         return arr;
     }
 
-    return <p className='widgetWrapper widgetGridContainer'>
-        {
+    return <section className='widgetWrapper widgetGridContainer'>
+        {/* {
             getWidget()
-        }
-    </p>
+        } */}
+        <Widget color='#2E6CFF' />
+        <Widget color='#FF7900'/>
+        <Widget color='#368839'/>
+        <Widget color='#DB0001'/>
+    </section>
 }
 
 export default WidgetWrapper;
