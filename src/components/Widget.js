@@ -1,6 +1,7 @@
 import react from 'react';
+import {Link} from 'react-router-dom';
 
-const Widget = ({color, textToDisplay, count})=>{
+const Widget = ({color, textToDisplay, count, redirectPath})=>{
 
     const widgetStyle = {
         background: color,
@@ -9,7 +10,7 @@ const Widget = ({color, textToDisplay, count})=>{
     return <section className="widget" style={widgetStyle}>
         <div className='widgetTopSection'>
             {
-                textToDisplay
+                <Link to={`${redirectPath}`}>{textToDisplay}</Link>
             }<i className="fa-solid fa-bucket"></i>
         </div>
         <div className='widgetBottomSection'>

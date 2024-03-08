@@ -5,12 +5,11 @@ import Widget from './Widget';
 const WidgetWrapper = () => {
 
     const [products, setProducts] = useState([]);
-    const test = false;
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await axios.get('https://dummyjson.com/products');
-            const userResponse = await axios.get('https://dummyjson.com/users');
+            // const userResponse = await axios.get('https://dummyjson.com/users');
             const {
                 data
             } = response;
@@ -22,13 +21,26 @@ const WidgetWrapper = () => {
 
     return <section className='widgetWrapper widgetGridContainer'>
         {
-            products && <Widget color='#2E6CFF' textToDisplay="Products" count={products.length}/>
+            products && <Widget
+            color='#0034B0'
+            textToDisplay="Products"
+            count={products.length}
+            redirectPath='/products'
+        />
         }
-        {
-            !test && <Widget color='#FF7900' textToDisplay="Categories" count={30}/>
-        }
-        <Widget color='#368839' textToDisplay="Customer" count={10}/>
-        <Widget color='#DB0001' textToDisplay="Alert" count={5}/>
+        <Widget
+            color='#CB6102'
+            textToDisplay="Categories"
+            count={30}
+            redirectPath='/category'
+        />
+        <Widget
+            color='#2A6D2E'
+            textToDisplay="Customer"
+            count={10}
+            redirectPath='/customers'
+        />
+        <Widget color='#AF0101' textToDisplay="Alert" count={5}/>
     </section>
 }
 

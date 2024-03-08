@@ -35,26 +35,32 @@ html{
   font-weight: 500;
 }
 .widgetWrapper{
-  background-color: #e3e3e3;
+  background-color: #282B2D;
   height:30%;
 }
 
 .chartWrapper{
-  background-color:#fff;
+  background-color:#181A1B;
   height:60%;
 }
 
 .footer{
-  background-color: #202B3A;
+  background-color: #1B222E;
   height:5%;
 }
 
 .header{
-  background-color:#202B3A;
+  background-color:#1B222E;
   height:5%;
 }
 .widgetTopSection{
   display: flex;
   justify-content: space-between;
   margin-bottom: 10%;
+}
+
+.errorContainer{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
 }
