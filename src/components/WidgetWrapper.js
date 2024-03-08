@@ -5,21 +5,28 @@ import Widget from './Widget';
 const WidgetWrapper = () => {
 
     const [products, setProducts] = useState([]);
+    const test = false;
 
     useEffect(() => {
-        const fetchProducts = async () => {
+        const fetchData = async () => {
             const response = await axios.get('https://dummyjson.com/products');
+            const userResponse = await axios.get('https://dummyjson.com/users');
             const {
                 data
             } = response;
             setProducts(data.products);
         }
-        fetchProducts();
+
+        fetchData();
     }, []);
 
     return <section className='widgetWrapper widgetGridContainer'>
-        <Widget color='#2E6CFF' textToDisplay="Products" count={products.length}/>
-        <Widget color='#FF7900' textToDisplay="Categories" count={30}/>
+        {
+            products && <Widget color='#2E6CFF' textToDisplay="Products" count={products.length}/>
+        }
+        {
+            !test && <Widget color='#FF7900' textToDisplay="Categories" count={30}/>
+        }
         <Widget color='#368839' textToDisplay="Customer" count={10}/>
         <Widget color='#DB0001' textToDisplay="Alert" count={5}/>
     </section>

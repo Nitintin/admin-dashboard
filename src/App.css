@@ -26,25 +26,35 @@ html{
 
 .widget{
   height:50%;
+  width: 20%;
   background-color:cyan;
   margin:2%;
+  border-radius: 8px;
+  padding: 2%;
+  font-size: 22px;
+  font-weight: 500;
 }
 .widgetWrapper{
-  background-color: blueviolet;
+  background-color: #e3e3e3;
   height:30%;
 }
 
 .chartWrapper{
-  background-color:red;
+  background-color:#fff;
   height:60%;
 }
 
 .footer{
-  background-color: blue;
+  background-color: #202B3A;
   height:5%;
 }
 
 .header{
   background-color:#202B3A;
   height:5%;
+}
+.widgetTopSection{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10%;
 }

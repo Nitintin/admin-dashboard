@@ -7,13 +7,17 @@ const Widget = ({color, textToDisplay, count})=>{
     }
 
     return <section className="widget" style={widgetStyle}>
-        {
-            textToDisplay
-        }<i className="fa-solid fa-bucket"></i>
-        <br />
-        {
-            count
-        }
+        <div className='widgetTopSection'>
+            {
+                textToDisplay
+            }<i className="fa-solid fa-bucket"></i>
+        </div>
+        <div className='widgetBottomSection'>
+            {
+                count
+            }
+        </div>
+        
     </section>
 }
 
