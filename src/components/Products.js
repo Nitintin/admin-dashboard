@@ -1,4 +1,5 @@
 import react, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 import DataTable from 'react-data-table-component';
 import Header from './Header';
@@ -46,7 +47,9 @@ const Products = () => {
                     productsData.map( (item, index) => (
                         <tr>
                             <td>{index + 1}</td>
-                            <td>{item.title}</td>
+                            <td>
+                                <Link to={`/products/${item.id}`}>{item.title}</Link>
+                            </td>
                             <td>{item.brand}</td>
                             <td>{item.category}</td>
                             <td>{item.price}</td>

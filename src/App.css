@@ -73,4 +73,9 @@ a{
 
 tr, td{
   border: 1px solid #000;
+  
+}
+
+td a{
+  color: #000;
 }

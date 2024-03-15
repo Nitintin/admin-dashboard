@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import Products from './components/Products';
 import Categories from './components/Categories';
+import ProductDetails from './components/ProductDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: '/category',
     element: <Categories />
+  },
+  {
+    path: '/products/:pid',
+    element: <ProductDetails />
   }
 ]);
 
