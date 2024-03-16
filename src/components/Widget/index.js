@@ -1,13 +1,10 @@
 import react from 'react';
 import {Link} from 'react-router-dom';
+import { StyledWidget } from './Widget.styled';
 
 const Widget = ({color, textToDisplay, count, redirectPath})=>{
 
-    const widgetStyle = {
-        background: color,
-    }
-
-    return <section className="widget" style={widgetStyle}>
+    return <StyledWidget color={color}>
         <div className='widgetTopSection'>
             {
                 <Link to={`${redirectPath}`}>{textToDisplay}</Link>
@@ -18,8 +15,7 @@ const Widget = ({color, textToDisplay, count, redirectPath})=>{
                 count
             }
         </div>
-        
-    </section>
+    </StyledWidget>
 }
 
 export default Widget;

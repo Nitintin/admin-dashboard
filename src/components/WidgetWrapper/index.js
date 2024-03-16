@@ -1,6 +1,7 @@
 import react, {useState, useEffect} from 'react';
 import axios from 'axios';
-import Widget from './Widget';
+import Widget from '../Widget';
+import { StyledWidgetWrapper } from './WidgetWrapper.styled';
 
 const WidgetWrapper = () => {
 
@@ -19,7 +20,7 @@ const WidgetWrapper = () => {
         fetchData();
     }, []);
 
-    return <section className='widgetWrapper widgetGridContainer'>
+    return <StyledWidgetWrapper>
         {
             products && <Widget
             color='#0034B0'
@@ -41,7 +42,7 @@ const WidgetWrapper = () => {
             redirectPath='/customers'
         />
         <Widget color='#AF0101' textToDisplay="Alert" count={5}/>
-    </section>
+    </StyledWidgetWrapper>
 }
 
 export default WidgetWrapper;
