@@ -7,18 +7,22 @@ import ErrorArea from './ErrorArea';
 import SearchArea from './SearchArea';
 import SearchSuggestions from './SearchSuggestions';
 import ProductsHTMLTable from './ProductsHTMLTable';
+import Loader from '../Loader';
 
 const Products = () => {
 
     const [productsData, setProductsData] = useState([]);
     const [errorMsg, setErrorMsg] = useState('');
     const [sugeestionList, setSuggestionList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchProducts = async () => {
+            setIsLoading(true);
             const response = await axios.get('https://dummyjson.com/products');
             console.log(response.data.products);
             setProductsData(response.data.products);
+            setIsLoading(false);
         }
 
         fetchProducts();
@@ -55,7 +59,10 @@ const Products = () => {
             }
             
             <hr />
-            <ProductsHTMLTable productsData={productsData} />
+            {
+                isLoading === true ? <Loader /> : <ProductsHTMLTable productsData={productsData} />
+            }
+            
             {/* <DataTable
                 columns={columns}
                 data={productsData}

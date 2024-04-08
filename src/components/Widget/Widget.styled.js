@@ -9,4 +9,7 @@ export const StyledWidget = styled.section`
     padding: 2%;
     font-size: 22px;
     font-weight: 500;
+    a{
+        color: #fff;
+    }
 `;
