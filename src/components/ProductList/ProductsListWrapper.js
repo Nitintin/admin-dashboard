@@ -8,10 +8,13 @@ import SearchArea from './SearchArea';
 import SearchSuggestions from './SearchSuggestions';
 import ProductsHTMLTable from './ProductsHTMLTable';
 import Loader from '../Loader';
+import Pagination from '../Pagination';
 
 const Products = () => {
 
     const [productsData, setProductsData] = useState([]);
+    const [totalProducts, setTotalProducts] = useState(0);
+    const [currentPagination, setCurrentPagination] = useState(0);
     const [errorMsg, setErrorMsg] = useState('');
     const [sugeestionList, setSuggestionList] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -19,14 +22,15 @@ const Products = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             setIsLoading(true);
-            const response = await axios.get('https://dummyjson.com/products');
+            const response = await axios.get(`https://dummyjson.com/products?skip=${currentPagination*30}`);
             console.log(response.data.products);
             setProductsData(response.data.products);
+            setTotalProducts(response.data.total);
             setIsLoading(false);
         }
 
         fetchProducts();
-    }, []);
+    }, [currentPagination]);
 
     const columns = [
         {
@@ -62,7 +66,11 @@ const Products = () => {
             {
                 isLoading === true ? <Loader /> : <ProductsHTMLTable productsData={productsData} />
             }
-            
+            {/* //pagination button */}
+            <Pagination
+                totalProducts={totalProducts}
+                setCurrentPagination={setCurrentPagination}
+            />
             {/* <DataTable
                 columns={columns}
                 data={productsData}

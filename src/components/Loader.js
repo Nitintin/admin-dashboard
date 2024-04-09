@@ -1,8 +1,9 @@
 import React from 'react'
+import LoaderImg from '../Assets/200w.gif'
 
 const Loader = () => {
   return (
-    <div>data is loading, please wait....</div>
+    <div><img src={LoaderImg} /></div>
   )
 }
 
