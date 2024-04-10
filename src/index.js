@@ -7,7 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './components/ErrorPage';
 import Products from './components/ProductList/ProductsListWrapper';
 import Categories from './components/Categories';
-import ProductDetails from './components/ProductDetails';
+import ProductDetails from './components/PDP/ProductDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

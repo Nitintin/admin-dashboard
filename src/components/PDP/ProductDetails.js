@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import Header from './Header';
-import Footer from './Footer'
+import Header from '../Header';
+import Footer from '../Footer'
 import {useParams} from 'react-router-dom';
 
 const ProductDetails = () => {

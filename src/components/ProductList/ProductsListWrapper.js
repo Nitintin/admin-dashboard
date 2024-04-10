@@ -1,12 +1,11 @@
-import react, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import DataTable from 'react-data-table-component';
 import Header from '../Header';
 import Footer from '../Footer';
 import ErrorArea from './ErrorArea';
-import SearchArea from './SearchArea';
-import SearchSuggestions from './SearchSuggestions';
-import ProductsHTMLTable from './ProductsHTMLTable';
+import SearchArea from '../Search/SearchArea';
+import SearchSuggestions from '../Search/SearchSuggestions';
+import ProductsHTMLTable from '../Tables/ProductsHTMLTable';
 import Loader from '../Loader';
 import Pagination from '../Pagination';
 
@@ -32,18 +31,7 @@ const Products = () => {
         fetchProducts();
     }, [currentPagination]);
 
-    const columns = [
-        {
-            name: 'Title',
-            selector: row => row.title,
-            sortable: true,
-        },
-        {
-            name: 'Brand',
-            selector: row => row.brand,
-            sortable: true,
-        },
-    ];
+    
 
     return <>
         <Header />
@@ -71,11 +59,6 @@ const Products = () => {
                 totalProducts={totalProducts}
                 setCurrentPagination={setCurrentPagination}
             />
-            {/* <DataTable
-                columns={columns}
-                data={productsData}
-                selectableRows
-            /> */}
         <Footer />
     </>
 }
