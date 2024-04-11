@@ -44,7 +44,7 @@ const SearchArea = ({
     //search button
     <>
         <input placeholder='Search for product Name' value={userSearchInput} onChange={handleInputChange} />
-        <button type='button' onClick={handleSearch}>Search <i class="fa-solid fa-magnifying-glass"></i></button>
+        <button type='button' onClick={handleSearch}>Search <i className="fa-solid fa-magnifying-glass"></i></button>
     </>
   )
 }

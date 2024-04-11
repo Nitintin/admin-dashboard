@@ -19,19 +19,35 @@ const Products = () => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const fetchProducts = async () => {
-            setIsLoading(true);
-            const response = await axios.get(`https://dummyjson.com/products?skip=${currentPagination*30}`);
-            console.log(response.data.products);
-            setProductsData(response.data.products);
-            setTotalProducts(response.data.total);
-            setIsLoading(false);
+        const localData = getLocalProduct();
+        if(localData.products){
+            setProductsData(localData.products);
+            setTotalProducts(localData.total);
+        }else{
+            fetchProducts();
         }
-
-        fetchProducts();
     }, [currentPagination]);
 
-    
+    const fetchProducts = async () => {
+        setIsLoading(true);
+        const response = await axios.get(`https://dummyjson.com/products?skip=${currentPagination*30}`);
+        setProductsData(response.data.products);
+        setTotalProducts(response.data.total);
+        setLocalProduct(response.data);
+        setIsLoading(false);
+    }
+
+    const getLocalProduct = () => {
+        return {
+            products: JSON.parse(localStorage.getItem(`products_skip=${currentPagination}`)),
+            total: localStorage.getItem('totalProducts'),
+        }
+    }
+
+    const setLocalProduct = (data) => {
+        localStorage.setItem(`products_skip=${currentPagination}`, JSON.stringify(data.products));
+        localStorage.setItem(`totalProducts`, data.total);
+    }
 
     return <>
         <Header />
