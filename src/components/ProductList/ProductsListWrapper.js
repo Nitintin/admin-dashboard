@@ -8,6 +8,8 @@ import SearchSuggestions from '../Search/SearchSuggestions';
 import ProductsHTMLTable from '../Tables/ProductsHTMLTable';
 import Loader from '../Loader';
 import Pagination from '../Pagination';
+import ProductCard from '../ProductCard';
+import { ProductCardWrapper } from './ProductList.styled';
 
 const Products = () => {
 
@@ -49,6 +51,7 @@ const Products = () => {
         localStorage.setItem(`totalProducts`, data.total);
     }
 
+    
     return <>
         <Header />
             <h2>Product Page </h2>
@@ -68,7 +71,15 @@ const Products = () => {
             
             <hr />
             {
-                isLoading === true ? <Loader /> : <ProductsHTMLTable productsData={productsData} />
+                isLoading === true ? <Loader /> : <>
+                    <ProductCardWrapper>
+                        {
+                            productsData.map(item => <ProductCard product={item} key={item.title} />)
+                        }
+                    </ProductCardWrapper>
+                    
+                    {/* <ProductsHTMLTable productsData={productsData} /> */}
+                </>
             }
             {/* //pagination button */}
             <Pagination
