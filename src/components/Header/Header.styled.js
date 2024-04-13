@@ -2,9 +2,7 @@ import styled from 'styled-components'
 
 export const StyledHeader = styled.header`
     padding: 10px;
-    background-color: #1B222E;
     height: 60px;
-    color: #fff;
     ul{
         width: 30%;
         list-style: none;
@@ -12,7 +10,7 @@ export const StyledHeader = styled.header`
         justify-content: space-evenly;
         a{
             text-decoration: none;
-            color: #fff;
         }
     }
+    border-bottom: 1px solid #e2e2e2;
 `

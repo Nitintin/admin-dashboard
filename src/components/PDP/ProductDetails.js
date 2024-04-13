@@ -4,11 +4,10 @@ import Header from '../Header';
 import Footer from '../Footer'
 import {useParams} from 'react-router-dom';
 
-const ProductDetails = () => {
+const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
 
     const [productInfo, setProductInfo] = useState({});
     const urlData = useParams();
-    console.log('nitin', urlData);
     useEffect(() => {
         const fetchProductInfo = async () => {
             const response = await axios.get(`https://dummyjson.com/products/${urlData.pid}`);
@@ -19,10 +18,9 @@ const ProductDetails = () => {
     }, []);
   return (
     <>
-        <Header />
+        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
         {
             <img src={productInfo?.thumbnail} />
-
         }
         <Footer />
     </>

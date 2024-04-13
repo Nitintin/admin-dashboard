@@ -11,7 +11,7 @@ import Pagination from '../Pagination';
 import ProductCard from '../ProductCard';
 import { ProductCardWrapper } from './ProductList.styled';
 
-const Products = () => {
+const Products = ({isDarkMode, toggleDarkMode}) => {
 
     const [productsData, setProductsData] = useState([]);
     const [totalProducts, setTotalProducts] = useState(0);
@@ -53,7 +53,7 @@ const Products = () => {
 
     
     return <>
-        <Header />
+        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
             <h2>Product Page </h2>
             <SearchArea
                 productsData={productsData}

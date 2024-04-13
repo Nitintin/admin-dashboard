@@ -11,8 +11,6 @@ const Pagination = ({
     const totalPaginationsButtons = Math.ceil(totalProducts / productsPerPage);
 
     const handlePaginationClick = (i) => {
-        //handle pagination
-        console.log('handlePaginationClick', i);
         setCurrentPagination(i);
     }
 

@@ -16,12 +16,9 @@ const SearchArea = ({
         }
 
         const filteredArray = productsData.filter(item => item.title.toLowerCase() === userSearchInput.toLowerCase());
-        console.log(filteredArray);
         if(filteredArray.length > 0){
-            //happy scenario
             navigate(`/products/${filteredArray[0].id}`)
         }else{
-            //negative scenario
             setErrorMsg('We do not have this product');
         }
     }
