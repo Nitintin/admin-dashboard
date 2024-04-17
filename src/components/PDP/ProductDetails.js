@@ -15,12 +15,12 @@ const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
         }
 
         fetchProductInfo();
-    }, []);
+    }, [urlData]);
   return (
     <>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
         {
-            <img src={productInfo?.thumbnail} />
+            <img src={productInfo?.thumbnail} alt='thumbnail' />
         }
         <Footer />
     </>

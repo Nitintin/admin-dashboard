@@ -1,4 +1,4 @@
-import react, {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Widget from '../Widget';
 import { StyledWidgetWrapper } from './WidgetWrapper.styled';

@@ -3,7 +3,7 @@ import LoaderImg from '../Assets/200w.gif'
 
 const Loader = () => {
   return (
-    <div><img src={LoaderImg} /></div>
+    <div><img src={LoaderImg} alt='loading spinner' /></div>
   )
 }
 

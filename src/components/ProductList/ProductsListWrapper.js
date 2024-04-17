@@ -5,7 +5,7 @@ import Footer from '../Footer';
 import ErrorArea from './ErrorArea';
 import SearchArea from '../Search/SearchArea';
 import SearchSuggestions from '../Search/SearchSuggestions';
-import ProductsHTMLTable from '../Tables/ProductsHTMLTable';
+// import ProductsHTMLTable from '../Tables/ProductsHTMLTable';
 import Loader from '../Loader';
 import Pagination from '../Pagination';
 import ProductCard from '../ProductCard';
@@ -21,6 +21,27 @@ const Products = ({isDarkMode, toggleDarkMode}) => {
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
+        const getLocalProduct = () => {
+            return {
+                products: JSON.parse(localStorage.getItem(`products_skip=${currentPagination}`)),
+                total: localStorage.getItem('totalProducts'),
+            }
+        }
+
+        const fetchProducts = async () => {
+            setIsLoading(true);
+            const response = await axios.get(`https://dummyjson.com/products?skip=${currentPagination*30}`);
+            setProductsData(response.data.products);
+            setTotalProducts(response.data.total);
+            setLocalProduct(response.data);
+            setIsLoading(false);
+        }
+
+        const setLocalProduct = (data) => {
+            localStorage.setItem(`products_skip=${currentPagination}`, JSON.stringify(data.products));
+            localStorage.setItem(`totalProducts`, data.total);
+        }
+
         const localData = getLocalProduct();
         if(localData.products){
             setProductsData(localData.products);
@@ -29,28 +50,6 @@ const Products = ({isDarkMode, toggleDarkMode}) => {
             fetchProducts();
         }
     }, [currentPagination]);
-
-    const fetchProducts = async () => {
-        setIsLoading(true);
-        const response = await axios.get(`https://dummyjson.com/products?skip=${currentPagination*30}`);
-        setProductsData(response.data.products);
-        setTotalProducts(response.data.total);
-        setLocalProduct(response.data);
-        setIsLoading(false);
-    }
-
-    const getLocalProduct = () => {
-        return {
-            products: JSON.parse(localStorage.getItem(`products_skip=${currentPagination}`)),
-            total: localStorage.getItem('totalProducts'),
-        }
-    }
-
-    const setLocalProduct = (data) => {
-        localStorage.setItem(`products_skip=${currentPagination}`, JSON.stringify(data.products));
-        localStorage.setItem(`totalProducts`, data.total);
-    }
-
     
     return <>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
