@@ -1,17 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { StyledLI, StyledUL } from './SearchSuggestions.styled'
+import { StyledLI, StyledUL, StyledWrapper } from './SearchSuggestions.styled'
 
 const SearchSuggestions = ({
     sugeestionList
 }) => {
     //ul li for the suggestions
   return (
-    <StyledUL>
+    <StyledWrapper>
+      <StyledUL>
         {
-            sugeestionList.map(item => <StyledLI><Link to={`/products/${item.id}`}>{item.title}</Link></StyledLI>)
+          sugeestionList.map(item => <StyledLI><Link to={`/products/${item.id}`}>{item.title}</Link></StyledLI>)
         }
-    </StyledUL>
+      </StyledUL>
+    </StyledWrapper>
   )
 }
 

@@ -5,13 +5,18 @@ import Products from "./components/ProductList/ProductsListWrapper";
 import Categories from "./components/Categories";
 import ProductDetails from "./components/PDP/ProductDetails";
 import Home from "./components/Home";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 function App() {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+  }, [isDarkMode]);
+  
 
   const toggleDarkMode = () => {
     setIsDarkMode(prevState => !prevState);
@@ -25,7 +30,7 @@ function App() {
     },
     {
       path: '/products',
-      element: <Products toggleDarkMode={toggleDarkMode}/>
+      element: <Products isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
     },
     {
       path: '/category',
@@ -33,12 +38,12 @@ function App() {
     },
     {
       path: '/products/:pid',
-      element: <ProductDetails toggleDarkMode={toggleDarkMode}/>
+      element: <ProductDetails isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
     }
   ]);
 
   return (
-    <div className={`App ${isDarkMode ? 'dark' : 'light'}`}>
+    <div className={`App`}>
       <RouterProvider router={router} />
     </div>
   );

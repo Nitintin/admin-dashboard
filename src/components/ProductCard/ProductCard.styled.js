@@ -4,9 +4,14 @@ export const StyledCard = styled.div`
     width: 25%;
     border: 1px solid black;
     margin: 10px 0;
-    background: #e2e2e2;
+    background: var(--bg-color-secondary);
+    max-height: 250px;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 600;
 `
 
 export const StyledImg = styled.img`
-    width: 100%
+    width: 100%;
+    max-height: 200px;
 `;

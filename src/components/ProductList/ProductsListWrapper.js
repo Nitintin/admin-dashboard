@@ -53,7 +53,6 @@ const Products = ({isDarkMode, toggleDarkMode}) => {
     
     return <>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
-            <h2>Product Page </h2>
             <SearchArea
                 productsData={productsData}
                 setErrorMsg={setErrorMsg}

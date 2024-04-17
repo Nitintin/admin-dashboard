@@ -1,8 +1,13 @@
-:root{
-  --bg-color-dark: #282B2D;
-  --text-color-dark: #dfdfdf;
-  --bg-color-light: #dfdfdf;
-  --text-color-light: #000;
+[data-theme="dark"]{
+  --bg-color: #03001C;
+  --text-color: #dfdfdf;
+  --bg-color-secondary: #301E67;
+}
+
+[data-theme="light"]{
+  --bg-color: #dfdfdf;
+  --text-color: #000;
+  --bg-color-secondary: #B6EADA;
 }
 
 body{
@@ -12,19 +17,10 @@ body{
 }
 
 .App{
-  &.light{
-    color: var(--text-color-light);
-    background-color: var(--bg-color-light);
-    a{
-      color: var(--text-color-light);
-    }
-  }
-  &.dark{
-    color: var(--text-color-dark);
-    background-color: var(--bg-color-dark);
-    a{
-      color: var(--text-color-dark);
-    }
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  a{
+    color: var(--text-color);
   }
 }
 

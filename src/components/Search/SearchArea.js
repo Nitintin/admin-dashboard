@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom';
+import { StyledInput, StyledWrapper } from './SearchSuggestions.styled';
 
 const SearchArea = ({
     productsData,
@@ -39,10 +40,10 @@ const SearchArea = ({
   return (
     //input
     //search button
-    <>
-        <input placeholder='Search for product Name' value={userSearchInput} onChange={handleInputChange} />
+    <StyledWrapper>
+        <StyledInput placeholder='Search for product Name' value={userSearchInput} onChange={handleInputChange} />
         <button type='button' onClick={handleSearch}>Search <i className="fa-solid fa-magnifying-glass"></i></button>
-    </>
+    </StyledWrapper>
   )
 }
 

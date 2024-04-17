@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { StyledCard, StyledImg } from './ProductCard.styled'
 
 const ProductCard = ({
@@ -6,8 +7,10 @@ const ProductCard = ({
 }) => {
   return (
     <StyledCard>
-        <StyledImg src={product.thumbnail} />
-        <p>{product.title}</p>
+        <Link to={`/products/${product.id}`}>
+          <StyledImg src={product.thumbnail} />
+          <p>{product.title.toUpperCase()}</p>
+        </Link>
     </StyledCard>
   )
 }
