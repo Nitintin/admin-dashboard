@@ -3,6 +3,8 @@ import axios from 'axios';
 import Header from '../Header';
 import Footer from '../Footer'
 import {useParams} from 'react-router-dom';
+import Rating from './Rating';
+import Price from './Price';
 
 const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
 
@@ -20,7 +22,14 @@ const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
     <>
         <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
         {
-            <img src={productInfo?.thumbnail} alt='thumbnail' />
+            <>
+                <img src={productInfo?.thumbnail} alt='thumbnail' />
+                <Rating totalRating={productInfo?.rating?.toFixed(1)}/>
+                {
+                    productInfo?.stock > 50 ? <button>Add to Cart</button> : <button disabled>Add to Cart</button>
+                }
+                <Price productInfo={productInfo} />
+            </>
         }
         <Footer />
     </>
