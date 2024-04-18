@@ -6,7 +6,10 @@ const Header = ({isDarkMode, toggleDarkMode}) =>{
         <ul>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/products'>Product List</Link></li>
-            <li onClick={toggleDarkMode}>MODE: {isDarkMode ? 'Dark' : 'Light'}</li>
+            <li onClick={toggleDarkMode}>
+                MODE: {isDarkMode ? 'Dark ' : 'Light '}
+                <i className={`fa-solid ${isDarkMode ? 'fa-moon' : 'fa-sun'}`}></i>
+            </li>
         </ul>
     </StyledHeader>
 }

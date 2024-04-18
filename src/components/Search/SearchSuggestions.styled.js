@@ -18,9 +18,6 @@ export const StyledLI = styled.li`
         background: #efefef;
         cursor: pointer;
     }
-    a{
-        color: #000;
-    }
 `
 
 export const StyledInput = styled.input`
@@ -34,4 +31,5 @@ export const StyledInput = styled.input`
 
 export const StyledWrapper = styled.div`
     width: 100%;
+    padding-top: 20px;
 `

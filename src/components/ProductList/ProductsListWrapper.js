@@ -67,7 +67,6 @@ const Products = ({isDarkMode, toggleDarkMode}) => {
                 />
             }
             
-            <hr />
             {
                 isLoading === true ? <Loader /> : <>
                     <ProductCardWrapper>
