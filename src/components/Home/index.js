@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../Header'
 import WidgetWrapper from '../WidgetWrapper'
-import ChartWrapper from '../ChartWrapper'
+import ChartWrapper from '../Charts/ChartWrapper'
 import Footer from '../Footer'
 
 const Home = () => {

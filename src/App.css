@@ -39,7 +39,10 @@ html{
 }
 
 .chartWrapper{
+  display: flex;
   height:60%;
+  margin-bottom: 5%;
+  padding: 10px;
 }
 
 .footer{
