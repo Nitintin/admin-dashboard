@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Categories = ({isDarkMode, setIsDarkMode}) => {
+const Categories = () => {
   return (
     <div>Categories</div>
   )

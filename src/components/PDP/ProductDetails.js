@@ -6,7 +6,7 @@ import {useParams} from 'react-router-dom';
 import Rating from './Rating';
 import Price from './Price';
 
-const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
+const ProductDetails = () => {
 
     const [productInfo, setProductInfo] = useState({});
     const urlData = useParams();
@@ -20,7 +20,7 @@ const ProductDetails = ({isDarkMode, toggleDarkMode}) => {
     }, [urlData]);
   return (
     <>
-        <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
+        <Header/>
         {
             <>
                 <img src={productInfo?.thumbnail} alt='thumbnail' />

@@ -5,9 +5,9 @@ import Products from "./components/ProductList/ProductsListWrapper";
 import Categories from "./components/Categories";
 import ProductDetails from "./components/PDP/ProductDetails";
 import Home from "./components/Home";
-import { useEffect, useState } from "react";
+import { useEffect, useState, createContext } from "react";
 
-
+export const ThemeContext = createContext();
 
 function App() {
 
@@ -25,26 +25,31 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />,
+      element: <Home/>,
       errorElement: <ErrorPage />
     },
     {
       path: '/products',
-      element: <Products isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
+      element: <Products/>
     },
     {
       path: '/category',
-      element: <Categories toggleDarkMode={toggleDarkMode}/>
+      element: <Categories/>
     },
     {
       path: '/products/:pid',
-      element: <ProductDetails isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>
+      element: <ProductDetails/>
     }
   ]);
 
   return (
     <div className={`App`}>
-      <RouterProvider router={router} />
+      <ThemeContext.Provider value={{
+        isDarkMode: isDarkMode,
+        toggleDarkMode: toggleDarkMode
+      }}>
+        <RouterProvider router={router} />
+      </ThemeContext.Provider>
     </div>
   );
 }
